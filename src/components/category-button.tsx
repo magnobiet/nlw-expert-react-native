@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { ReactNode } from 'react';
 import { Pressable, PressableProps, Text, View } from 'react-native';
 
 type CategoryButtonProperties = PressableProps & {
@@ -6,7 +7,7 @@ type CategoryButtonProperties = PressableProps & {
   isSelected?: boolean;
 };
 
-export function CategoryButton({ title, isSelected, ...properties }: Readonly<CategoryButtonProperties>) {
+export function CategoryButton({ title, isSelected, ...properties }: Readonly<CategoryButtonProperties>): ReactNode {
   return (
     <Pressable
       className={clsx(
