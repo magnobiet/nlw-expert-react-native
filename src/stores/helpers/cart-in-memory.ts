@@ -12,3 +12,16 @@ export function add(products: Array<ProductCartProps>, newProduct: ProductProps)
 
   return [...products, { ...newProduct, quantity: 1 }];
 }
+
+export function remove(products: Array<ProductCartProps>, productToRemoveId: string) {
+  const updateProducts = products.map((product) => {
+    return product.id === productToRemoveId
+      ? {
+          ...product,
+          quantity: product.quantity > 1 ? product.quantity - 1 : 0,
+        }
+      : product;
+  });
+
+  return updateProducts.filter((product) => product.quantity > 0);
+}
